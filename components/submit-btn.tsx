@@ -1,17 +1,26 @@
-import React from "react";
+'use client';
+
+import React, { useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
-import { experimental_useFormStatus as useFormStatus } from "react-dom";
 
 export default function SubmitBtn() {
-  const { pending } = useFormStatus();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleClick = () => {
+    setIsSubmitting(true);
+
+    // Optional: You can reset the button after a short delay
+    setTimeout(() => setIsSubmitting(false), 3000); // or handle onSubmit response
+  };
 
   return (
     <button
       type="submit"
+      onClick={handleClick}
       className="group flex items-center justify-center gap-2 h-[3rem] w-[8rem] bg-gray-900 text-white rounded-full outline-none transition-all focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 dark:bg-white dark:bg-opacity-10 disabled:scale-100 disabled:bg-opacity-65"
-      disabled={pending}
+      disabled={isSubmitting}
     >
-      {pending ? (
+      {isSubmitting ? (
         <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white"></div>
       ) : (
         <>

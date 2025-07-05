@@ -200,8 +200,8 @@ type ProjectProps = {
   description: string[];
   tags: string[];
   imageUrl: any;
-  githubUrl?: string;
-  doiUrl?: string;
+  githubUrl: string;
+  doiUrl: string;
 };
 
 export default function Project({

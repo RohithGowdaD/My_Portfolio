@@ -39,7 +39,7 @@ export const links = [
     name: "Contact",
     hash: "#contact",
   },
-] as const;
+];
 
 export const experiencesData = [
   {
@@ -77,7 +77,7 @@ export const experiencesData = [
       //icon: React.createElement(FaReact),
     date: "May 2023 – November 2023",
   },
-] as const;
+];
 
 export const projectsData = [
   {
@@ -122,7 +122,7 @@ export const projectsData = [
     imageUrl: wordanalyticsImg1,
     githubUrl: "https://github.com/RohithGowdaD/Aahara",
   },
-] as const;
+];
 
 export const skillGroups = [
   {
