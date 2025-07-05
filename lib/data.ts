@@ -159,4 +159,4 @@ export const skillGroups = [
       "GitHub Actions",
     ],
   },
-]as const;
+];
