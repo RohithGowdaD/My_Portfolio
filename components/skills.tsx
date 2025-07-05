@@ -62,11 +62,13 @@ import { motion } from "framer-motion";
 export default function Skills() {
   const { ref } = useSectionInView("Skills");
 
+  
+
   return (
     <section
       id="skills"
       ref={ref}
-      className="h-screen max-w-[53rem] mx-auto px-4 scroll-mt-24 flex flex-col justify-center"
+      className="h-screen max-w-[53rem] mx-auto px-4 scroll-mt-50 flex flex-col justify-center"
     >
       <SectionHeading>My skills</SectionHeading>
       

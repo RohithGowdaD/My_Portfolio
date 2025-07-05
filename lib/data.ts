@@ -89,10 +89,10 @@ export const projectsData = [
     githubUrl: "https://github.com/RohithGowdaD/Artha---AI-Finance-Platform",
   },
   {
-    title1: "MuteSign: Deep Learning Sign Language Recognition",
+    title: "MuteSign: Deep Learning Sign Language Recognition",
     description:
       ["Built a tool that understands hand gestures and converts them into text, making communication easier for the hearing-impaired."],
-    tags: ["TensorFlow/Keras","OpenCV", "Python", "Scikit-learn", "Pandas"],
+    tags: ["TensorFlow/Keras", "Python", "Scikit-learn", "Pandas"],
     imageUrl: rmtdevImg,
     doiUrl: "https://ieeexplore.ieee.org/document/10435143",
   },

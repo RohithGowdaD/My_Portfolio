@@ -206,7 +206,6 @@ type ProjectProps = {
 
 export default function Project({
   title,
-  title1,
   description,
   tags,
   imageUrl,
@@ -240,8 +239,9 @@ export default function Project({
       >
         <section className="relative bg-gray-100 max-w-[45rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 sm:h-[20rem] transition hover:bg-gray-200 dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
           <div className="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:ml-[2rem] sm:group-even:ml-[20rem]">
-            <h3 className="text-2xl font-semibold">{title}</h3>
-            {title1 && <h4 className="text-xl font-semibold mt-1">{title1}</h4>}
+            <h3 className={`font-semibold ${title.length > 35 ? 'text-xl' : 'text-2xl'}`}>
+              {title}
+            </h3>
 
             {/* Description */}
             <div className="mt-2 text-sm text-gray-700 dark:text-white/70 leading-relaxed space-y-1">
