@@ -192,16 +192,16 @@ export default function Project({
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 type ProjectProps = {
   title: string;
   title1?: string;
   description: string[];
   tags: string[];
-  imageUrl: any;
-  githubUrl: string;
-  doiUrl: string;
+  imageUrl: StaticImageData;
+  githubUrl?: string;
+  doiUrl?: string;
 };
 
 export default function Project({
