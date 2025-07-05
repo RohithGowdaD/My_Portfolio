@@ -7,7 +7,7 @@ import corpcommentImg from "@/public/Artha.png";
 import rmtdevImg from "@/public/mutesign.png";
 import wordanalyticsImg from "@/public/Phishing.png";
 import wordanalyticsImg1 from "@/public/FWMS.png";
-import wordanalyticsImg2 from "@/public/mobile.png";
+import wordanalyticsImg2 from "@/public/Mobile.png";
 import boeingLogo from "@/public/images.jpeg";
 import gyansysLogo from "@/public/gyan.jpg";
 import light from "@/public/light.png";
