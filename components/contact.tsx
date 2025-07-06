@@ -15,7 +15,7 @@ export default function Contact() {
     <motion.section
       id="contact"
       ref={ref}
-      className="mb-20 sm:mb-28 w-[min(100%,38rem)] text-center scroll-mt-28"
+      className="mb-20 sm:mb-10 w-[min(100%,38rem)] text-center"
       initial={{
         opacity: 0,
       }}
@@ -33,8 +33,8 @@ export default function Contact() {
 
       <p className="text-gray-700 -mt-6 dark:text-white/80">
         Please contact me directly at{" "}
-        <a className="underline" href="mailto:rdevaraj@iu.edu">
-          rdevaraj@iu.edu
+        <a className="underline" href="mailto:rdevaraju@iu.edu">
+          rdevaraju@iu.edu
         </a>{" "}
         or through this form.
       </p>
@@ -71,4 +71,4 @@ export default function Contact() {
       </form>
     </motion.section>
   );
-}
+};

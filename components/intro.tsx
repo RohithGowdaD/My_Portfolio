@@ -31,7 +31,7 @@ export default function Intro() {
             }}
           >
             <Image
-              src="/badge_photo.jpg"
+              src="/Badge_photo.jpg"
               alt="Rohith portrait"
               width="192"
               height="192"
@@ -61,8 +61,8 @@ export default function Intro() {
         className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
-      >
-        <span className="font-bold">Hello, I'm Rohith Gowda Devaraju.</span> 
+      >Hello, I'm 
+        <span className="font-bold"> Rohith Gowda Devaraju.</span> 
         <br />I'm a{" "}
         <span className="font-bold">Software Engineer</span> with{" "}
         <span className="font-bold">1.5 years</span> of experience. 
@@ -90,7 +90,7 @@ export default function Intro() {
 
         <a
           className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
-          href="/CV.pdf"
+          href=" /Rohith_Resume.pdf"
           download>Download CV
           <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
         </a>
