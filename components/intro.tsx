@@ -31,7 +31,7 @@ export default function Intro() {
             }}
           >
             <Image
-              src="/Badge_photo.jpg"
+              src="/Rohith.jpg"
               alt="Rohith portrait"
               width="192"
               height="192"
