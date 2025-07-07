@@ -77,7 +77,8 @@ export default function About() {
       ref={ref}
       id="about"
       aria-label="About Section"
-      className="relative h-[100vh] px-6 max-w-[42rem] text-center leading-8 sm:mb-40 scroll-mt-28"
+      className="mb-28 max-w-[42rem] text-center leading-8 sm:mb-40 scroll-mt-28"
+      //className="relative h-[100vh] px-6 max-w-[42rem] text-center leading-8 sm:mb-40 scroll-mt-28"
       //"mb-28 max-w-[42rem] text-center leading-8 sm:mb-40 scroll-mt-28"
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
