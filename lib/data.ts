@@ -53,7 +53,7 @@ export const experiencesData = [
     logo: boeingLogo,
     icon: React.createElement(CgWorkAlt),
       // icon: React.createElement(LuGraduationCap),
-    date: "September 2024 - Present",
+    date: "September 2024 - July 2025",
   },
   {
     title: "Gyansys - Salesforce intern",
