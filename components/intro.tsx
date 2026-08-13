@@ -82,7 +82,7 @@ export default function Intro() {
       </motion.h1>
 
       <motion.p
-        className="mx-auto mt-4 max-w-xl text-balance text-base font-medium text-gray-700 sm:text-xl"
+        className="mx-auto mt-4 max-w-xl text-balance text-base font-medium text-gray-700 dark:text-gray-200 sm:text-xl"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.25 }}
@@ -91,7 +91,7 @@ export default function Intro() {
         <AnimatePresence mode="wait">
           <motion.span
             key={roleIndex}
-            className="text-gray-500"
+            className="text-gray-500 dark:text-gray-300"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
