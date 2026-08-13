@@ -87,37 +87,29 @@ export default function About() {
       <SectionHeading>About Me</SectionHeading>
 
       <p className="mb-4 text-gray-800 dark:text-gray-300">
-        Hi, I'm <span className="font-bold text-lg">Rohith Gowda</span> — a
+        Hi, I’m <span className="font-bold text-lg">Rohith Gowda</span>, a
         <span className="font-bold"> Software Engineer</span> and
-        <span className="font-bold"> MSCS student at Indiana University Bloomington</span> with a passion for
-        <span className="font-medium"> research, system performance</span>, and
-        <span className="font-medium"> impactful software solutions</span>.
+        <span className="font-bold"> MS Computer Science student at Indiana University Bloomington</span>.
       </p>
 
       <p className="mb-4 text-gray-800 dark:text-gray-300">
-        At <span className="font-bold">Boeing</span>, I worked on software systems for the International Space Station,
-        optimizing performance on HPC clusters using <span className="font-medium">PBS scripting</span> and
-        <span className="font-medium"> parallel Python</span>. This resulted in a
-        <span className="font-semibold"> 60% reduction in runtime</span> for key simulations.
-        During my internship at <span className="font-bold">GyanSys</span>, I developed a
-        <span className="font-medium"> Salesforce-based Hospital Management System</span> to streamline patient workflows and reduce manual overhead.
+        I’ve worked across <span className="font-bold">OneMain Financial</span> and <span className="font-bold">Boeing</span>,
+        building <span className="font-medium">automation, cloud infrastructure, and monitoring systems</span> for
+        <span className="font-medium"> software that has to stay reliable at scale</span>. I like problems where the answer
+        isn’t obvious yet, whether that’s <span className="font-medium">tracking down a production failure</span> or
+        <span className="font-medium"> figuring out what a system is really telling you</span>.
       </p>
 
-      <p className="mb-6 text-gray-800 dark:text-gray-300">
-        Beyond industry work, I enjoy exploring research and personal projects — such as a
-        <span className="font-medium"> sign language recognition system</span>, 
-        <span className="font-medium"> phishing detection tools</span>, and 
-        <span className="font-medium"> accessibility solutions</span> I built while working with an NGO.
-      </p>
-      <p className="mt-6 mb-3 text-pink-600 dark:text-pink-400 font-medium">
-        📍 I'm currently exploring roles and projects in{" "}
-        <span className="font-semibold">AI-driven applications</span>,{" "}
-        <span className="font-semibold">cloud platforms</span>, and{" "}
-        <span className="font-semibold">intelligent systems</span>. Let’s build something meaningful together!
+      <p className="mb-4 text-gray-800 dark:text-gray-300">
+        Outside of work I spend time on <span className="font-medium">machine learning research</span>. My work on
+        <span className="font-medium"> deep-learning sign language recognition</span> is
+        <span className="font-semibold"> published with IEEE</span>.
       </p>
 
-      <p className="italic text-sm text-gray-500 dark:text-gray-400">
-        Feel free to reach out if you’d like to collaborate or chat!
+      <p className="mt-6 text-pink-600 dark:text-pink-400 font-medium">
+        📍 I’m looking for <span className="font-semibold">full-time software engineering roles</span> across
+        <span className="font-semibold"> development, DevOps, and platform engineering</span>.
+        Let’s build something meaningful together!
       </p>
     </motion.section>
   );

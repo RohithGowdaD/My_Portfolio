@@ -10,8 +10,8 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Rohith | Personal Portfolio",
-  description: "Rohith is a Software Engineer.",
+  title: "Rohith Gowda | Software Engineer",
+  description: "Rohith Gowda Devaraju — Software Engineer specializing in cloud infrastructure, observability, and applied machine learning. MS CS @ Indiana University.",
 };
 
 export default function RootLayout({

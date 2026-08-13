@@ -197,11 +197,13 @@ import Image, { StaticImageData } from "next/image";
 type ProjectProps = {
   title: string;
   title1?: string;
-  description: string[];
+  description: string | string[];
   tags: string[];
-  imageUrl: StaticImageData;
+  imageUrl?: StaticImageData;
   githubUrl?: string;
   doiUrl?: string;
+  link?: string;
+  linkLabel?: string;
 };
 
 export default function Project({
@@ -211,6 +213,8 @@ export default function Project({
   imageUrl,
   githubUrl,
   doiUrl,
+  link,
+  linkLabel,
 }: ProjectProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -221,9 +225,9 @@ export default function Project({
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
-  // Define the link target (GitHub takes priority over DOI)
-  const actionLink = githubUrl || doiUrl;
-  const hoverLabel = githubUrl ? "View Code" : doiUrl ? "Read Paper" : "";
+  // Define the link target (new structure takes priority)
+  const actionLink = link || githubUrl || doiUrl;
+  const hoverLabel = linkLabel || (githubUrl ? "View Code" : doiUrl ? "Read Paper" : "");
 
   return (
     <motion.div
@@ -231,67 +235,110 @@ export default function Project({
       style={{ scale: scaleProgress, opacity: opacityProgress }}
       className="group mb-3 sm:mb-8 last:mb-0"
     >
-      <a
-        href={actionLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block"
-      >
-        <section className="relative bg-gray-100 max-w-[45rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 sm:h-[20rem] transition hover:bg-gray-200 dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
-          <div className="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:ml-[2rem] sm:group-even:ml-[20rem]">
-            <h3 className={`font-semibold ${title.length > 35 ? 'text-xl' : 'text-2xl'}`}>
-              {title}
-            </h3>
+      {actionLink ? (
+        <a
+          href={actionLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block"
+        >
+          <section className={`relative bg-gray-100 border border-black/5 rounded-lg overflow-hidden transition hover:bg-gray-200 dark:text-white dark:bg-white/10 dark:hover:bg-white/20 ${
+            imageUrl ? "max-w-[45rem] sm:pr-8 sm:h-[20rem]" : "max-w-[45rem] p-6"
+          }`}>
+            <div className={`flex flex-col h-full ${
+              imageUrl ? "pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] sm:ml-[2rem] sm:group-even:ml-[20rem]" : ""
+            }`}>
+              <h3 className={`font-semibold ${title.length > 35 ? 'text-xl' : 'text-2xl'}`}>
+                {title}
+              </h3>
 
-            {/* Description */}
-            <div className="mt-2 text-sm text-gray-700 dark:text-white/70 leading-relaxed space-y-1">
-              {description.map((point, i) => (
+              {/* Description */}
+              <div className="mt-2 text-sm text-gray-700 dark:text-white/70 leading-relaxed space-y-1">
+                {Array.isArray(description) ? (
+                  description.map((point, i) => (
+                    <p key={i} className="mb-1">
+                      {point}
+                    </p>
+                  ))
+                ) : (
+                  <p>{description}</p>
+                )}
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap mt-8 gap-2 sm:mt-auto">
+                {tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Project image (if available) */}
+            {imageUrl && (
+              <Image
+                src={imageUrl}
+                alt={`Screenshot of ${title}`}
+                quality={95}
+                className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
+                  transition
+                  group-hover:scale-[1.04]
+                  group-hover:-translate-x-3
+                  group-hover:translate-y-3
+                  group-hover:-rotate-2
+
+                  group-even:group-hover:translate-x-3
+                  group-even:group-hover:translate-y-3
+                  group-even:group-hover:rotate-2
+
+                  group-even:right-[initial] group-even:-left-40"
+              />
+            )}
+
+            {/* Hover overlay label */}
+            {hoverLabel && (
+              <div className="absolute bottom-4 right-4 text-xs sm:text-sm px-3 py-1 rounded-full bg-black/70 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {hoverLabel}
+              </div>
+            )}
+          </section>
+        </a>
+      ) : (
+        <section className="max-w-[45rem] bg-gray-100 border border-black/5 rounded-lg overflow-hidden p-6 dark:text-white dark:bg-white/10">
+          <h3 className={`font-semibold ${title.length > 35 ? 'text-xl' : 'text-2xl'}`}>
+            {title}
+          </h3>
+
+          {/* Description */}
+          <div className="mt-2 text-sm text-gray-700 dark:text-white/70 leading-relaxed space-y-1">
+            {Array.isArray(description) ? (
+              description.map((point, i) => (
                 <p key={i} className="mb-1">
                   {point}
                 </p>
-              ))}
-            </div>
-
-            {/* Tags */}
-            <div className="flex flex-wrap mt-4 gap-2 sm:mt-auto">
-              {tags.map((tag, index) => (
-                <span
-                  key={index}
-                  className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+              ))
+            ) : (
+              <p>{description}</p>
+            )}
           </div>
 
-          {/* Project image */}
-          <Image
-            src={imageUrl}
-            alt={`Screenshot of ${title}`}
-            quality={95}
-            className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
-              transition 
-              group-hover:scale-[1.04]
-              group-hover:-translate-x-3
-              group-hover:translate-y-3
-              group-hover:-rotate-2
-
-              group-even:group-hover:translate-x-3
-              group-even:group-hover:translate-y-3
-              group-even:group-hover:rotate-2
-
-              group-even:right-[initial] group-even:-left-40"
-          />
-
-          {/* Hover overlay label */}
-          {actionLink && (
-            <div className="absolute bottom-4 right-4 text-xs sm:text-sm px-3 py-1 rounded-full bg-black/70 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              {hoverLabel}
-            </div>
-          )}
+          {/* Tags */}
+          <div className="flex flex-wrap mt-8 gap-2">
+            {tags.map((tag, index) => (
+              <span
+                key={index}
+                className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </section>
-      </a>
+      )}
     </motion.div>
   );
 }
